@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Mahin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="content">
+        <div class="one cards">
+            <h1>Mohammed Abbas<br>Mahin</h1>
+            <p>+44 7796 787097 | <a href="mailto:mabbasmahin@gmail.com">mabbasmahin@gmail.com</a> | LU3 2AR Luton, Bedfordshire, England</p>
+        </div>
+        <div class="two cards">
+            <h3>Education</h3>
+            <div class="card-content">
+                <h4 style="padding: 4px;">International Indian School, Jeddah</h4>
+                <p>Physics, Chemistry, Math, Computer Science</p>
+                <br>
+                <h4>Luton Sixth Form College</h4>
+                <p>BTEC IT Level 3 National Diploma<br>BTEC Digital Film and Media Production National Certificate</p>
+            </div>
+        </div>
+        <div class="three cards">
+            <h3>Profile</h3>
+            <div class="card-content">
+                <p>My work ethic and commitment to excellence have enabled me to meet the demands of various roles, and consistently surpass expectations. From my extensive experience, one can clearly see that I flourish under stress, ensuring that job requirements and deadlines are met and exceeded even closer than anyone else could imagine. In all my tasks, I have always shown a dedicated approach towards creating a culture of innovation and quality that has continuously resulted in impressive results.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus blanditiis est numquam? Illum tenetur blanditiis delectus aliquid reprehenderit, rerum quisquam atque. Sint praesentium voluptas illum atque quasi voluptatem dolores expedita.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis consequuntur officia earum voluptatum voluptates pariatur? Officia vitae ea atque aliquid fuga nobis qui nisi quos ratione, excepturi minus in reprehenderit.</p>
+            </div>
+        </div>
+        <div class="four cards">
+            <h3>Skills</h3>
+            <div class="card-content skills-list">
+                <ul>
+                    <li>Hey</li>
+                    <li>Hello</li>
+                    <li>Hi</li>
+                    <li>Hey</li>
+                    <li>Hello There</li>
+                </ul>
+                <ul>
+                    <li>What</li>
+                    <li>Is</li>
+                    <li>This</li>
+                    <li>Happening</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        let cards = document.querySelectorAll('.cards');
+        cards.forEach(card => {
+            card.onmousemove = function(e){
+                let x = e.pageX - card.offsetLeft;
+                let y = e.pageY - card.offsetTop;
+
+                card.style.setProperty('--x', x + 'px');
+                card.style.setProperty('--y', y + 'px');
+                card.style.setProperty('--bsX', x*0.05 + 'px');
+                card.style.setProperty('--bsY', y*0.05 + 'px');
+            }
+        });
+    </script>
+</body>
+</html>
