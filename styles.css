@@ -8,6 +8,7 @@ body {
     font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
     color: #d3d3d3;
     text-align: center;
+    background: #212121;
     background-image: linear-gradient(to bottom right, #212121, #131313, black);
     overflow-x: hidden;
     scrollbar-width: none;
