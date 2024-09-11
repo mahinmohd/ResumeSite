@@ -9,6 +9,12 @@ body {
     color: #d3d3d3;
     text-align: center;
     background-image: linear-gradient(to bottom right, #212121, #131313, black);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 #content {
     display: grid;
