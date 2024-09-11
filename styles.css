@@ -9,6 +9,7 @@ body {
     color: #d3d3d3;
     text-align: center;
     background: #212121;
+    width: 100%;
     background-image: linear-gradient(to bottom right, #212121, #131313, black);
     overflow-x: hidden;
     scrollbar-width: none;
