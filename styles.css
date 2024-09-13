@@ -69,12 +69,12 @@ body {
     text-decoration: none;
     font-size: 14px;
     text-transform: uppercase;
-    padding: 10px 0;
+    padding: 10px;
     text-shadow: none;
     transition: all 0.3s;
     opacity: 0;
     animation-name: nav-elements-magnet;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 .header .nav-bar-content a:nth-child(1) {
@@ -85,6 +85,16 @@ body {
 }
 .header .nav-bar-content a:nth-child(3) {
     animation-delay: 0.6s;
+}
+.header .nav-bar-content a:nth-child(4) {
+    padding: 15px;
+    background-color: none;
+    border-radius: 28px;
+    width: fit-content;
+    animation-delay: 0.8s;
+}
+.header .nav-bar-content a:nth-child(4):hover {
+    background-color: rgba(220, 220, 220, 0.2);
 }
 
 .header .nav-bar-content a:hover, header .nav-bar-content a.active {
