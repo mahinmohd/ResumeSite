@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Mahin</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4451b09aeb.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header class="header">
+        <nav class="nav-bar-content">
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    <div class="menu"><i class="fa-solid fa-bars"></i></div>
     <div id="content">
         <div class="one cards">
             <h1>Mohammed Abbas<br>Mahin</h1>
             <p>+44 7796 787097 | <a href="mailto:mabbasmahin@gmail.com">mabbasmahin@gmail.com</a> | LU3 2AR Luton, Bedfordshire, England</p>
         </div>
-        <div class="two cards">
+        <div id="education" class="two cards">
             <h3>Education</h3>
             <div class="card-content">
                 <h4 style="padding: 4px;">International Indian School, Jeddah</h4>
@@ -28,7 +37,7 @@
                 <p>My work ethic and commitment to excellence have enabled me to meet the demands of various roles, and consistently surpass expectations. From my extensive experience, one can clearly see that I flourish under stress, ensuring that job requirements and deadlines are met and exceeded even closer than anyone else could imagine. In all my tasks, I have always shown a dedicated approach towards creating a culture of innovation and quality that has continuously resulted in impressive results.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus blanditiis est numquam? Illum tenetur blanditiis delectus aliquid reprehenderit, rerum quisquam atque. Sint praesentium voluptas illum atque quasi voluptatem dolores expedita.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis consequuntur officia earum voluptatum voluptates pariatur? Officia vitae ea atque aliquid fuga nobis qui nisi quos ratione, excepturi minus in reprehenderit.</p>
             </div>
         </div>
-        <div class="four cards">
+        <div id="skills" class="four cards">
             <h3>Skills</h3>
             <div class="card-content skills-list">
                 <ul>
@@ -47,7 +56,71 @@
             </div>
         </div>
     </div>
+    <hr>
+    <section id="contact" style="min-height: 100vh;">
+        <div class="form-container">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="contact-form">
+                <h1>Contact</h1>
+                <input type="hidden" name="access_key" value="d6bca903-e8c2-4c7f-b45e-e58dee1f0270">
+    
+                <div class="name-fields">
+                    <input type="text" id="firstName" name="firstName" class="input-field" placeholder="Your First Name" required>
+                    <input type="text" id="lastName" name="lastName" class="input-field" placeholder="Your Last Name" required>
+                </div>
+    
+                <input type="email" id="email" name="email" class="input-field" placeholder="Your Email" required>
+    
+                <textarea id="message" name="message" class="input-field message-box" placeholder="Message, Let's connect!"></textarea>
+    
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+    
+            <div id="thankYou" class="thank-you hidden">
+                <h1>Thank You!</h1>
+                <p>We will get in touch soon.</p>
+            </div>
+        </div>
+    </section>    
     <script>
+
+        document.querySelector('.menu').addEventListener('click', function() {
+            document.querySelector('.header').classList.toggle('mobile-header');
+        });
+
+        document.getElementById("contactForm").addEventListener("submit", function () {
+            const form = document.getElementById("contactForm");
+
+            form.addEventListener('submit', function () {
+                form.classList.add('hidden');
+
+                // Show thank you message with fade-in effect
+                const thankYou = document.getElementById("thankYou");
+                thankYou.classList.add('fade-in');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            // Select both divs with IDs and the section element
+            const sections = document.querySelectorAll('div[id], section[id]');  
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 50) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         let cards = document.querySelectorAll('.cards');
         cards.forEach(card => {
             card.onmousemove = function(e){
