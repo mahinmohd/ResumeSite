@@ -3,18 +3,94 @@
     margin: 0;
     padding: 0;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
     color: #d3d3d3;
     text-align: center;
-    background: #212121;
-    width: 100%;
+    background-color: #212121;
     background-image: linear-gradient(to bottom right, #212121, #131313, black);
     overflow-x: hidden;
     scrollbar-width: none;
-    scroll-behavior: smooth;
+    margin: 0;
 }
+.menu {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    z-index: 100;
+}
+.menu i {
+    font-size: large;
+    margin-top: 15px;
+}
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    z-index: 100; /* Ensures the navbar is above the content */
+    transition: all 0.3s ease-in-out;
+    animation-name: rise-up;
+    animation-duration: 0.4s;
+}
+.header.mobile-header {
+    height: 100%;
+    width: 60%;
+    background-image: linear-gradient(to right, black, transparent);
+}
+.header .nav-bar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+    width: 80%;
+    border-top: 1px solid white;
+    padding: 5px;
+}
+.header .nav-bar-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    text-shadow: none;
+    transition: all 0.3s;
+    opacity: 0;
+    animation-name: nav-elements-magnet;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+.header .nav-bar-content a:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.header .nav-bar-content a:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.header .nav-bar-content a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.header .nav-bar-content a:hover, header .nav-bar-content a.active {
+    text-shadow: 0 0 8px rgba(255, 255, 255);
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -35,6 +111,8 @@ body::-webkit-scrollbar {
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 55px;
     overflow: hidden;
+    animation-name: rise-up;
+    animation-duration: 4s;
 }
 .two h4 {
     font-size: 20px;
@@ -100,7 +178,8 @@ body::-webkit-scrollbar {
     width: 70%;
     background-image: linear-gradient(rgb(40, 40, 40), rgb(37, 37, 37));
     border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 26px;
+    font-size: 22px;
+    text-transform: uppercase;
     border-radius: inherit;
     box-shadow: 0;
     cursor: default;
@@ -189,6 +268,143 @@ body::-webkit-scrollbar {
     grid-row: 5 / 7;
 }
 
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+    height: 90vh;
+}
+.form-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15mm;
+}
+
+hr {
+    width: 60%;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255);
+}
+
+.contact-form, .thank-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: opacity 0.6s ease-in-out;
+}
+#thankYou {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.fade-in {
+    display: block;
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.name-fields {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    height: 15mm;
+    padding: 24px; /* Adjust padding for consistency */
+    border: none;
+    outline: none;
+    border-radius: 22px;
+    font-size: 16px;
+    background: rgb(64, 64, 64);
+    color: white;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    scrollbar-width: none;
+    margin-bottom: 20px; /* Add margin to separate fields */
+    transition: all 0.3s ease-in-out;
+}
+
+.input-field::placeholder {
+    color: #797979;
+    text-shadow: none;
+    transition: all 0.3s ease-in-out;
+    z-index: -10;
+}
+
+.input-field:focus::placeholder {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.message-box {
+    height: 40mm;
+}
+
+.submit-btn {
+    position: relative;
+    height: 10%;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1mm;
+    background-image: linear-gradient(rgb(40, 40, 40), rgb(37, 37, 37));
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to right, white, rgba(255, 255, 255, 0.5), white);
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.4;
+    filter: blur(50px);
+    pointer-events: none;
+    transition: all 0.4s;
+}
+
+.submit-btn:hover::before {
+    opacity: 1;
+}
+
+.submit-btn:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.submit-btn:active {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.thank-you h1 {
+    font-size: 40px;
+    color: #555;
+}
+
+.thank-you p {
+    font-size: 18px;
+    color: #888;
+}
+
+
+
 @media (max-width: 768px) {
     #content {
         display: flex;
@@ -197,6 +413,21 @@ body::-webkit-scrollbar {
         align-items: center;
     }
 
+    .name-fields {
+        flex-direction: column;
+        gap: 0;
+    }
+    .contact-form {
+        padding: 0 40px;
+    }
+
+    .form-container h1 {
+        margin-bottom: 10mm;
+    }
+
+    hr {
+        width: 80%;
+    }
     .card-content.skills-list ul {
         padding: 0; /* Add some padding for better spacing */
     }
@@ -218,16 +449,23 @@ body::-webkit-scrollbar {
     }
     .card-content {
         margin: auto 0;
+        padding: 20px;
     }
     .one h1 {
         font-size: 36px; /* Reduce font size for smaller screens */
     }
-
-    .card-content {
-        padding: 10px; /* Adjust padding for smaller screens */
+}
+@media (max-width: 1072px) {
+    .header {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+    .header.mobile-header {
+        display: block;
     }
 }
-
 @media (max-width: 480px) {
     .one h1 {
         font-size: 28px; /* Further reduce for very small screens */
@@ -235,5 +473,41 @@ body::-webkit-scrollbar {
 
     .card-content.skills-list {
         flex-direction: column; /* Stack skill lists vertically */
+    }
+}
+@keyframes rise-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes nav-elements-magnet {
+    0% {
+        opacity: 0;
+        transform: scale(4mm) translateX(40px);
+    }
+    30% {
+        opacity: 0.3;
+        transform: scale(2mm) translateX(30px);
+    }
+    70% {
+        opacity: 0.6;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+@keyframes lights {
+    from {
+        opacity: 1;
+    } 
+    to {
+        opacity: 0.4;
     }
 }
