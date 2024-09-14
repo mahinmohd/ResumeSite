@@ -16,7 +16,7 @@
             <a href="CV.png" target="_blank">Resume</a>
         </nav>
     </header>
-    <div class="menu"><i class="fa-solid fa-bars"></i></div>
+    <i class="menu-icon fa-solid fa-bars"></i>
     <div id="content">
         <div class="one cards">
             <h1>Mohammed Abbas<br>Mahin</h1>
@@ -84,8 +84,10 @@
     </section>    
     <script>
 
-        document.querySelector('.menu').addEventListener('click', function() {
-            document.querySelector('.header').classList.toggle('mobile-header');
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            const header = document.querySelector('.header');
+            header.classList.toggle('mobile-header');
+            this.classList.toggle('fa-x')
         });
 
         document.getElementById("contactForm").addEventListener("submit", function () {
