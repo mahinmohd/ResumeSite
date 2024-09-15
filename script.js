@@ -25,7 +25,7 @@ window.onload = function() {
 
 function toggleInvert() {
     const link = document.getElementById("cvLink");
-    link.href = link.href.endsWith("Themed-CV.pdf") ? "Themed-CV-light.pdf" : "Themed-CV.pdf";
+    link.href = link.href.endsWith("Themed-CV-dark.pdf") ? "Themed-CV-light.pdf" : "Themed-CV-dark.pdf";
     document.documentElement.classList.toggle('dark-mode');
     
     // Save the preference to local storage
