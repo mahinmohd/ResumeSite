@@ -13,7 +13,9 @@
             <a href="#education" class="nav-link">Education</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <a href="CV.png" target="_blank">Resume</a>
+            <a href="CV.pdf" target="_blank">Résumé</a>
+            <a href="Themed-CV.pdf" target="_blank" id="cvLink">Themed Résumé</a>
+            <i class="fa-solid fa-circle-half-stroke toggle-icon" onclick="toggleInvert()"></i>
         </nav>
     </header>
     <i class="menu-icon fa-solid fa-bars"></i>
@@ -34,25 +36,24 @@
         </div>
         <div class="three cards">
             <h3>Profile</h3>
-            <div class="card-content">
-                <p>My work ethic and commitment to excellence have enabled me to meet the demands of various roles, and consistently surpass expectations. From my extensive experience, one can clearly see that I flourish under stress, ensuring that job requirements and deadlines are met and exceeded even closer than anyone else could imagine. In all my tasks, I have always shown a dedicated approach towards creating a culture of innovation and quality that has continuously resulted in impressive results.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus blanditiis est numquam? Illum tenetur blanditiis delectus aliquid reprehenderit, rerum quisquam atque. Sint praesentium voluptas illum atque quasi voluptatem dolores expedita.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis consequuntur officia earum voluptatum voluptates pariatur? Officia vitae ea atque aliquid fuga nobis qui nisi quos ratione, excepturi minus in reprehenderit.</p>
+            <div class="card-content profile-content">
+                <p>I am a Designer, Developer, and Space Enthusiast. Developing apps, websites, and other computational programs has always been one of my favourite things to do. Studying Computer Science in school and college helped me deepen my understanding of technology and its potential. Alongside this, my passion for space and astrophysics gets me on-set to explore the universe’s complex structure and integrate it into my projects. I always aim to innovate, whilst blending creativity with functionality, crafting intuitive User Interfaces, writing efficient code, and designing amazing “out-of-the-box” solutions.</p>
             </div>
         </div>
         <div id="skills" class="four cards">
             <h3>Skills</h3>
             <div class="card-content skills-list">
                 <ul>
-                    <li>Hey</li>
-                    <li>Hello</li>
-                    <li>Hi</li>
-                    <li>Hey</li>
-                    <li>Hello There</li>
+                    <li>Communication</li>
+                    <li>Creativity</li>
+                    <li>iOS Development</li>
+                    <li>Problem Solving</li>
                 </ul>
                 <ul>
-                    <li>What</li>
-                    <li>Is</li>
-                    <li>This</li>
-                    <li>Happening</li>
+                    <li>Python Programming</li>
+                    <li>TeamWork</li>
+                    <li>UI/UX Design</li>
+                    <li>Web Design/Development</li>
                 </ul>
             </div>
         </div>
@@ -82,60 +83,6 @@
             </div>
         </div>
     </section>    
-    <script>
-
-        document.querySelector('.menu-icon').addEventListener('click', function() {
-            const header = document.querySelector('.header');
-            header.classList.toggle('mobile-header');
-            this.classList.toggle('fa-x')
-        });
-
-        document.getElementById("contactForm").addEventListener("submit", function () {
-            const form = document.getElementById("contactForm");
-
-            form.addEventListener('submit', function () {
-                form.classList.add('hidden');
-
-                // Show thank you message with fade-in effect
-                const thankYou = document.getElementById("thankYou");
-                thankYou.classList.add('fade-in');
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            // Select both divs with IDs and the section element
-            const sections = document.querySelectorAll('div[id], section[id]');  
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 50) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(currentSection)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        let cards = document.querySelectorAll('.cards');
-        cards.forEach(card => {
-            card.onmousemove = function(e){
-                let x = e.pageX - card.offsetLeft;
-                let y = e.pageY - card.offsetTop;
-
-                card.style.setProperty('--x', x + 'px');
-                card.style.setProperty('--y', y + 'px');
-                card.style.setProperty('--bsX', x*0.05 + 'px');
-                card.style.setProperty('--bsY', y*0.05 + 'px');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -5,6 +5,10 @@
 }
 html {
     scroll-behavior: smooth;
+    transition: filter 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.dark-mode {
+    filter: invert(100%);
 }
 body {
     font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
@@ -24,6 +28,7 @@ body {
     margin: auto;
     background: rgba(56, 56, 56, 0.4);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 15px;
@@ -67,7 +72,7 @@ body {
     border-top: 1px solid white;
     padding: 5px;
 }
-.header .nav-bar-content a {
+.header .nav-bar-content a, .header .nav-bar-content i {
     color: white;
     text-decoration: none;
     font-size: 14px;
@@ -90,14 +95,34 @@ body {
     animation-delay: 0.6s;
 }
 .header .nav-bar-content a:nth-child(4) {
-    padding: 15px;
     background-color: none;
     border-radius: 28px;
     width: fit-content;
     animation-delay: 0.8s;
 }
-.header .nav-bar-content a:nth-child(4):hover {
+.header .nav-bar-content a:nth-child(5) {
+    background-color: none;
+    border-radius: 28px;
+    width: max-content;
+    animation-delay: 1s;
+}
+.header .nav-bar-content i {
+    width: fit-content;
+    height: fit-content;
+    background: rgba(56, 56, 56, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    animation-delay: 1.2s;
+}
+.header .nav-bar-content a:nth-child(4):hover, .nav-bar-content a:nth-child(5):hover {
+    padding: 15px;
     background-color: rgba(220, 220, 220, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .header .nav-bar-content a:hover, header .nav-bar-content a.active {
@@ -155,6 +180,7 @@ body::-webkit-scrollbar {
     inset: 0.5px;
     background: rgb(64, 64, 64);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     border-radius: inherit;
 }
 .one:hover::after, .two:hover::after, .three:hover::after, .four:hover::after {
@@ -257,18 +283,22 @@ body::-webkit-scrollbar {
     cursor: default;
     z-index: 10;
 }
+.card-content.profile-content {
+    line-height: 0.94cm;
+}
 .card-content.skills-list {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around; /* Better distribution */
-    align-items: flex-start; /* Align items at the top */
+    flex-direction: row; /* Ensure items are laid out in a row */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: flex-start; /* Align items to the top */
 }
 .card-content.skills-list ul {
+    flex: 1; /* Ensure each list takes up equal space */
     margin: 0;
-    padding: 10px 18px; /* Add some padding for better spacing */
+    padding: 15px;
 }
 .card-content.skills-list ul li {
-    font-size: 18px;
+    font-size: 15px;
     padding: 6px 0; /* Adjust the padding for list items */
 }
 
@@ -441,11 +471,14 @@ hr {
     hr {
         width: 80%;
     }
-    .card-content.skills-list ul {
-        padding: 0; /* Add some padding for better spacing */
+    .card-content.skills-list {
+        flex-direction: column; /* Stack the lists vertically */
+        align-items: flex-start; /* Align items to the start */
     }
-    .card-content.skills-list ul li {
-        padding: 4px 10px; /* Adjust the padding for list items */
+    .card-content.skills-list ul {
+        flex: none; /* Remove the flex property */
+        margin: 0;
+        padding: 10px 0; /* Add padding for spacing between lists */
     }
 
     .one, .two, .three, .four {
@@ -458,7 +491,7 @@ hr {
         height: 330px;
     }
     .three {
-        height: 640px;
+        height: 840px;
     }
     .card-content {
         margin: auto 0;
@@ -468,7 +501,7 @@ hr {
         font-size: 36px; /* Reduce font size for smaller screens */
     }
 }
-@media (max-width: 1072px) {
+@media (max-width: 1130px) {
     .header {
         display: none;
     }
